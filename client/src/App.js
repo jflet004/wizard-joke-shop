@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom'
-import Home from './Home'
+import { UserProvider } from './context/globalState';
 import NavBar from './NavBar'
+import Home from './Home'
 import Signup from './Signup';
+import Login from './Login';
 import './App.css';
 
 function App() {
-  const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    fetch("/me")
-      .then((r) => {
-        if (r.ok) {
-          r.json().then(user => setUser(user))
-        }
-      })
-  }, [])
-
-  const login = () => {}
-
-  const logout = () => {}
-  
 
   return (
     <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<Signup onLogin={setUser} />} />
-      </Routes>
+      <UserProvider>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </UserProvider>
     </div>
   );
 }
