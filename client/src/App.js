@@ -17,7 +17,10 @@ function App() {
       })
   }, [])
 
-  if (!user) return <Home />
+  const login = () => {}
+
+  const logout = () => {}
+  
 
   return (
     <div className="App">
