@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get "/items", to: "items#index"
   get "/items/:id", to: "items#show"
 
+  get "/cart", to "cart#show"
+  post "/cart/add"
+  post "/cart/remove"
+
 
 
 

@@ -4,6 +4,6 @@ class User < ApplicationRecord
   
   validates :username, :password, :password_confirmation, presence: true, uniqueness: true
 
-  has_many :carts
+  has_one :cart
   
 end
