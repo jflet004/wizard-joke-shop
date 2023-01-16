@@ -1,7 +1,8 @@
 import React from 'react'
 import ItemCard from './ItemCard'
+import SearchBar from './SearchBar'
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, searchItem, onSearchChange }) => {
   const itemCards = items.map(item => 
     <ItemCard
       key={item.id}
@@ -10,6 +11,7 @@ const ItemList = ({ items }) => {
     )
   return (
     <div>
+      <SearchBar searchItem={searchItem} onSearchChange={onSearchChange} />
       {itemCards}
     </div>
   )
