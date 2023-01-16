@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const UserContext = React.createContext()
 
 const UserProvider = ({ children }) => {
-  
+
   const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -15,7 +15,9 @@ const UserProvider = ({ children }) => {
       .catch(error => console.log(error))
   }, [])
 
-  const signup = () => { }
+  const signup = (user) => { 
+    setUser(user)
+  }
   const login = () => { }
   const logout = () => { }
 

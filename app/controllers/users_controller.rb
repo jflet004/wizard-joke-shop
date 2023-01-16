@@ -3,8 +3,10 @@ class UsersController < ApplicationController
   def create #signup
     user = User.create(user_params)
     if user.valid?
-      render json: user, status: :created
+      session[:user_id] = user.id
+      render json: user
     else
+      # using activeRecord to get errors
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
